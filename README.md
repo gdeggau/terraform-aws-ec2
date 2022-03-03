@@ -4,6 +4,10 @@ Initialize a working directory
 
     terraform init
 
+Format files
+
+    terraform format
+
 Preview the changes made
 
     terraform plan
@@ -11,6 +15,14 @@ Preview the changes made
 Apply changes
 
     terraform apply
+
+Preview the changes made and save in a file
+
+    terraform plan -out="plan.tfout"
+
+Apply changes saved in a file
+
+    terraform apply "plan.tfout"
 
 Validate if code is correct
 

@@ -4,15 +4,15 @@ resource "aws_vpc" "ec-vpc" {
 }
 
 resource "aws_subnet" "ec-subnet" {
-  vpc_id = aws_vpc.ec-vpc.id
-  cidr_block = "172.16.10.0/24"
-  availability_zone = "us-east-1a"
+  vpc_id                  = aws_vpc.ec-vpc.id
+  cidr_block              = "172.16.10.0/24"
+  availability_zone       = "us-east-1a"
   map_public_ip_on_launch = true
 }
 
 resource "aws_network_interface" "ec-netint" {
-  subnet_id = aws_subnet.ec-subnet.id
-  private_ips = ["172.16.10.100"]
+  subnet_id       = aws_subnet.ec-subnet.id
+  private_ips     = ["172.16.10.100"]
   security_groups = [aws_security_group.ec-secgroup.id]
 }
 
@@ -30,6 +30,6 @@ resource "aws_route_table" "ec-routetable" {
 }
 
 resource "aws_route_table_association" "subnet-association" {
-  subnet_id = aws_subnet.ec-subnet.id
+  subnet_id      = aws_subnet.ec-subnet.id
   route_table_id = aws_route_table.ec-routetable.id
 }

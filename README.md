@@ -39,3 +39,7 @@ See details of a state/resource
 Destroy all the states/resources created in cloud
 
     terraform destroy -auto-approve
+
+Show sensitive output
+
+    terraform output db_password
